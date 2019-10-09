@@ -9,22 +9,27 @@ module NetRelated
   ORG_ID = ENV['ACCLAIM_ORG_ID']
 
   class ApiRequests
+    attr_reader :org_id
 
-    def self.badge_templates(org_id = ORG_ID)
-      badge_templates_str = "#{BASE_URL}/#{API_VERSION}/organizations/#{org_id}/badge_templates"
-      response = RestClient::Request.execute(method: :get, url: badge_templates_str, user: USER_TOKEN, password: '')
+    def initialize(org_id = ORG_ID)
+      @org_id = org_id
+    end
+
+    def badge_templates
+      badge_url_string = "#{BASE_URL}/#{API_VERSION}/organizations/#{@org_id}/badge_templates"
+      response = RestClient::Request.execute(method: :get, url: badge_url_string, user: USER_TOKEN, password: '')
       badge_templates_h = JSON.parse(response.body)
     end
 
-    def self.issued_badges(org_id = ORG_ID)
-      issued_badges_url_str = "#{BASE_URL}/#{API_VERSION}/organizations/#{org_id}/badges"
-      response = RestClient::Request.execute(method: :get, url: issued_badges_url_str, user: USER_TOKEN, password: '')
+    def issued_badges
+      issued_badges_url_string = "#{BASE_URL}/#{API_VERSION}/organizations/#{@org_id}/badges"
+      response = RestClient::Request.execute(method: :get, url: issued_badges_url_string, user: USER_TOKEN, password: '')
       badges_h = JSON.parse(response.body)
     end
 
-    def self.organizations
-      org_url_str = "#{BASE_URL}/#{API_VERSION}/organizations"
-      response = RestClient::Request.execute(method: :get, url: org_url_str, user: USER_TOKEN, password: '')
+    def organizations
+      org_url_string = "#{BASE_URL}/#{API_VERSION}/organizations"
+      response = RestClient::Request.execute(method: :get, url: org_url_string, user: USER_TOKEN, password: '')
       orgs_h = JSON.parse(response.body)
     end
   end

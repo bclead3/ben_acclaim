@@ -1,7 +1,7 @@
 namespace :db_populate do
   desc "inserts an organization into a local table"
   task populate_organization: :environment do
-    org_h = NetRelated::ApiRequests.organizations
+    org_h = NetRelated::ApiRequests.new.organizations
     org_sub_h = org_h['data'].first
     create_h = {
         id: org_sub_h['id'],
@@ -14,12 +14,12 @@ namespace :db_populate do
     }
 
     org = Organization.create(create_h)
-    puts "Created organization #{org.inspect}"
+    puts "Created table entry for organization #{org.inspect}"
   end
 
   desc "inserts badge templates into a local table"
   task populate_badge_templates: :environment do
-    badge_templage_hash = NetRelated::ApiRequests.badge_templates
+    badge_templage_hash = NetRelated::ApiRequests.new.badge_templates
     badge_templage_hash['data'].each do |sub_hash|
       create_h = {
           id: sub_hash['id'],
@@ -35,7 +35,7 @@ namespace :db_populate do
           organization_id: sub_hash['owner']['id']
       }
       b_template = BadgeTemplate.create(create_h)
-      puts "Created badge template #{b_template.inspect}"
+      puts "Created table entry for badge template #{b_template.inspect}"
     end
   end
 
