@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ID:</strong>
+  <%= @organization.id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @organization.name %>
+</p>
+
+<p>
+  <strong>Vanity url:</strong>
+  <%= @organization.vanity_url %>
+</p>
+
+<p>
+  <strong>Vanity slug:</strong>
+  <%= @organization.vanity_slug %>
+</p>
+
+<p>
+  <strong>Verified:</strong>
+  <%= @organization.verified %>
+</p>
+
+<p>
+  <strong>Viewable:</strong>
+  <%= @organization.viewable %>
+</p>
+
+<%= link_to 'Back', organizations_path %>

@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @hero.email %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @hero.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @hero.last_name %>
+</p>
+
+<p>
+  <strong>Badge template:</strong>
+  <%= @hero.badge_template_id %>
+</p>
+
+<p>
+  <strong>Issued at:</strong>
+  <%= @hero.issued_at %>
+</p>
+
+<p>
+  <strong>Issuer earner:</strong>
+  <%= @hero.issuer_earner_id %>
+</p>
+
+<p>
+  <strong>Locale:</strong>
+  <%= @hero.locale %>
+</p>
+
+<p>
+  <strong>Suppress badge notification email:</strong>
+  <%= @hero.suppress_badge_notification_email %>
+</p>
+
+<p>
+  <strong>Expires at:</strong>
+  <%= @hero.expires_at %>
+</p>
+
+<p>
+  <strong>Country name:</strong>
+  <%= @hero.country_name %>
+</p>
+
+<p>
+  <strong>State or province:</strong>
+  <%= @hero.state_or_province %>
+</p>
+
+<%= link_to 'Edit', edit_hero_path(@hero) %> |
+<%= link_to 'Back', heroes_path %>

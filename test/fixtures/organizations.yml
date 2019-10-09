@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  vanity_url: MyString
+  vanity_slug: MyString
+  verified: false
+  viewable: false
+
+two:
+  name: MyString
+  vanity_url: MyString
+  vanity_slug: MyString
+  verified: false
+  viewable: false

@@ -1,0 +1,72 @@
+<%= form_with(model: hero, local: true) do |form| %>
+  <% if hero.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(hero.errors.count, "error") %> prohibited this hero from being saved:</h2>
+
+      <ul>
+      <% hero.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :badge_template_id %>
+    <%= form.text_field :badge_template_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :issued_at %>
+    <%= form.text_field :issued_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :issuer_earner_id %>
+    <%= form.text_field :issuer_earner_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :locale %>
+    <%= form.text_field :locale %>
+  </div>
+
+  <div class="field">
+    <%= form.label :suppress_badge_notification_email %>
+    <%= form.check_box :suppress_badge_notification_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :expires_at %>
+    <%= form.text_field :expires_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country_name %>
+    <%= form.text_field :country_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state_or_province %>
+    <%= form.text_field :state_or_province %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<h1>The <%= @organizations.first.name%> Organization</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Vanity url</th>
+      <th>Vanity slug</th>
+      <th>Verified</th>
+      <th>Viewable</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @organizations.each do |organization| %>
+      <tr>
+        <td><%= image_tag organization.image_url, size: "100x100" %></td>
+        <td><%= organization.name %></td>
+        <td><%= organization.vanity_url %></td>
+        <td><%= organization.vanity_slug %></td>
+        <td><%= organization.verified %></td>
+        <td><%= organization.viewable %></td>
+        <td><%= link_to 'Show', organization %></td>
+<!--        <td><%#= link_to 'Edit', edit_organization_path(organization) %></td>-->
+<!--        <td><%#= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%#= link_to 'New Organization', new_organization_path %>
+
+<h2>Badge Templates</h2>
+<table>
+  <thead>
+    <tr>
+      <th>image</th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>State</th>
+      <th>Public</th>
+      <th>Vanity Slug</th>
+      <th>URL</th>
+      <th># deployed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @templates.each do |template| %>
+      <tr>
+        <td><%= image_tag template.image_url, size: "100x100" %></td>
+        <td><%= template.id %></td>
+        <td><%= template.name %></td>
+        <td><%= template.description %></td>
+        <td><%= template.state %></td>
+        <td><%= template.public %></td>
+        <td><%= template.vanity_slug %></td>
+        <td><%= template.badge_url %></td>
+        <td><%= template.deployed %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

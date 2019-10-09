@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Heroes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Badge template</th>
+      <th>Issued at</th>
+      <th>Issuer earner</th>
+      <th>Locale</th>
+      <th>Suppress badge notification email</th>
+      <th>Expires at</th>
+      <th>Country name</th>
+      <th>State or province</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @heroes.each do |hero| %>
+      <tr>
+        <td><%= hero.recipient_email %></td>
+        <td><%= hero.first_name %></td>
+        <td><%= hero.last_name %></td>
+        <td><%= hero.badge_template_id %></td>
+        <td><%= hero.issued_at %></td>
+        <td><%= hero.issuer_earner_id %></td>
+        <td><%= hero.locale %></td>
+        <td><%= hero.suppress_badge_notification_email %></td>
+        <td><%= hero.expires_at %></td>
+        <td><%= hero.country_name %></td>
+        <td><%= hero.state_or_province %></td>
+        <td><%= link_to 'Show', hero %></td>
+        <td><%= link_to 'Edit', edit_hero_path(hero) %></td>
+        <td><%= link_to 'Destroy', hero, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hero', new_hero_path %>

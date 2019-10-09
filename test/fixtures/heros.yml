@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  first_name: MyString
+  last_name: MyString
+  badge_template_id: MyString
+  issued_at: 
+  issuer_earner_id: MyString
+  locale: 
+  suppress_badge_notification_email: false
+  expires_at: 
+  country_name: MyString
+  state_or_province: MyString
+
+two:
+  email: MyString
+  first_name: MyString
+  last_name: MyString
+  badge_template_id: MyString
+  issued_at: 
+  issuer_earner_id: MyString
+  locale: 
+  suppress_badge_notification_email: false
+  expires_at: 
+  country_name: MyString
+  state_or_province: MyString
