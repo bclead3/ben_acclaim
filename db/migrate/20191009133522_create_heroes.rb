@@ -5,11 +5,11 @@ class CreateHeroes < ActiveRecord::Migration[5.2]
       t.string :first_name,       null: false
       t.string :last_name,        null: false
       t.string :badge_template_id,null: false
-      t.date_time :issued_at,     null: false
+      t.datetime :issued_at,     null: false
       t.string :issuer_earner_id
-      t.sring :locale
+      t.string :locale
       t.boolean :suppress_badge_notification_email
-      t.date_time :expires_at
+      t.datetime :expires_at
       t.string :country_name
       t.string :state_or_province
 

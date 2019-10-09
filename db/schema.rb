@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_09_033422) do
+ActiveRecord::Schema.define(version: 2019_10_09_133522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -49,6 +49,22 @@ ActiveRecord::Schema.define(version: 2019_10_09_033422) do
     t.string "badge_url"
     t.integer "deployed"
     t.string "organization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "heroes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "recipient_email", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "badge_template_id", null: false
+    t.datetime "issued_at", null: false
+    t.string "issuer_earner_id"
+    t.string "locale"
+    t.boolean "suppress_badge_notification_email"
+    t.datetime "expires_at"
+    t.string "country_name"
+    t.string "state_or_province"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

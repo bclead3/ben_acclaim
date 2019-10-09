@@ -26,7 +26,7 @@
         <td><%= hero.recipient_email %></td>
         <td><%= hero.first_name %></td>
         <td><%= hero.last_name %></td>
-        <td><%= hero.badge_template_id %></td>
+        <td><%= BadgeTemplate.find(hero.badge_template_id)&.name %></td>
         <td><%= hero.issued_at %></td>
         <td><%= hero.issuer_earner_id %></td>
         <td><%= hero.locale %></td>

@@ -16,7 +16,7 @@ class HeroesTest < ApplicationSystemTestCase
 
     fill_in "Badge template", with: @hero.badge_template_id
     fill_in "Country name", with: @hero.country_name
-    fill_in "Email", with: @hero.email
+    fill_in "Recipient email", with: @hero.recipient_email
     fill_in "Expires at", with: @hero.expires_at
     fill_in "First name", with: @hero.first_name
     fill_in "Issued at", with: @hero.issued_at
@@ -37,7 +37,7 @@ class HeroesTest < ApplicationSystemTestCase
 
     fill_in "Badge template", with: @hero.badge_template_id
     fill_in "Country name", with: @hero.country_name
-    fill_in "Email", with: @hero.email
+    fill_in "Recipient email", with: @hero.recipient_email
     fill_in "Expires at", with: @hero.expires_at
     fill_in "First name", with: @hero.first_name
     fill_in "Issued at", with: @hero.issued_at

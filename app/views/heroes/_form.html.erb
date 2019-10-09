@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.label :recipient_email %>
+    <%= form.text_field :recipient_email %>
   </div>
 
   <div class="field">
@@ -28,12 +28,12 @@
 
   <div class="field">
     <%= form.label :badge_template_id %>
-    <%= form.text_field :badge_template_id %>
+    <%= form.collection_select :badge_template_id, BadgeTemplate.order(:name), :id, :name %>
   </div>
 
   <div class="field">
     <%= form.label :issued_at %>
-    <%= form.text_field :issued_at %>
+    <%= form.text_field :issued_at, :value => DateTime.now  %>
   </div>
 
   <div class="field">
@@ -43,7 +43,7 @@
 
   <div class="field">
     <%= form.label :locale %>
-    <%= form.text_field :locale %>
+    <%= form.select :locale, language_array, prompt: 'Select' %>
   </div>
 
   <div class="field">

@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  email: MyString
+  recipient_email: MyString
   first_name: MyString
   last_name: MyString
   badge_template_id: MyString
@@ -14,7 +14,7 @@ one:
   state_or_province: MyString
 
 two:
-  email: MyString
+  recipient_email: MyString
   first_name: MyString
   last_name: MyString
   badge_template_id: MyString
