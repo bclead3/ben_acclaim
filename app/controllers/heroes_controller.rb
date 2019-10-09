@@ -41,13 +41,13 @@ class HeroesController < ApplicationController
   # PATCH/PUT /heroes/1.json
   def update
     respond_to do |format|
-      if kv_group_evidences_params['name']
+      if kv_group_evidences_params['name'] && @kv_group
         @kv_group.update(kv_group_evidences_params)
       end
-      if plain_text_evidence_params['title']
+      if plain_text_evidence_params['title'] && @plain_text_evidence
         @plain_text_evidence.update(plain_text_evidence_params)
       end
-      if url_evidence_params['value']
+      if url_evidence_params['value'] && @url_evidence
         @url_evidence.update(url_evidence_params)
       end
       if @hero.update(hero_params)
@@ -81,7 +81,7 @@ class HeroesController < ApplicationController
       @plain_text_evidence = PlainTextEvidence.where(hero_id: params[:id]).first
       @url_evidence = UrlEvidence.where(hero_id: params[:id])&.first
       @kv_group = KvGroupEvidence.where(hero_id: params[:id])&.first
-      @kv_params = KvPairEvidence.where(kv_group_evidence_id: @kv_group.id)&.first
+      @kv_params = KvPairEvidence.where(kv_group_evidence_id: @kv_group&.id)&.first if @kv_group
     end
 
     def kv_group_evidences_params
