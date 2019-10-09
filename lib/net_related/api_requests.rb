@@ -2,6 +2,7 @@
 # NetRelated::ApiRequests.new(ENV['ACCLAIM_ORG_ID']).issued_badges
 # NetRelated::ApiRequests.new(ENV['ACCLAIM_ORG_ID']).build_badge_parameters("tiger@example.com", "b9e0f88d-4e78-4cee-adcc-0d3edaeff716")
 # NetRelated::ApiRequests.new(ENV['ACCLAIM_ORG_ID']).issue_badge("tiger@example.com", "b9e0f88d-4e78-4cee-adcc-0d3edaeff716")
+# NetRelated::ApiRequests.new(ENV['ACCLAIM_ORG_ID']).get_issued_badges
 # NetRelated::ApiRequests.new(nil).organizations
 module NetRelated
 
@@ -85,6 +86,26 @@ module NetRelated
       else
         response_hash[:reason] = "badge_template_id:#{badge_template_id} not found in local database"
       end
+    end
+
+    def get_issued_badges(filter_val = nil, sort_val = nil, page_val = nil)
+      get_badges_url_string = "#{BASE_URL}/#{API_VERSION}/organizations/#{@org_id}/badges"
+      params = {}
+      if filter_val
+        params["filter": filter_val]
+      end
+      if sort_val
+        params["sort": sort_val]
+      end
+      if page_val
+        params["page": page_val]
+      end
+      if params.blank?
+        response = RestClient::Request.execute(method: :get, url: get_badges_url_string, user: USER_TOKEN, password: '')
+      else
+        response = RestClient::Request.execute(method: :get, url: get_badges_url_string, user: USER_TOKEN, password: '', headers: params)
+      end
+      JSON.parse(response.body)
     end
   end
 end

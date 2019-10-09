@@ -1,5 +1,5 @@
 class HeroesController < ApplicationController
-  before_action :set_hero, only: [:show, :edit, :update, :destroy]
+  before_action :set_hero, only: [:show, :edit, :update, :destroy, :deploy]
 
   # GET /heroes
   # GET /heroes.json
@@ -68,6 +68,10 @@ class HeroesController < ApplicationController
       format.html { redirect_to heroes_url, notice: 'Hero was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def deploy
+    NetRelated::ApiRequests.new.issue_badge(@hero.recipient_email, @hero.badge_template_id)
   end
 
   private
