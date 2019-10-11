@@ -25,7 +25,7 @@ class Hero < ApplicationRecord
   def evidence_json
     return_json = {}
     return_json[:evidence] = []
-    if (kvgo = KvGroupEvidence.where(hero_id: self.id)&.first)
+    if (kvgo = KvGroupEvidence.where(hero_id: id)&.first)
       group_json = {}
       group_json[:type] = 'KeyValueGroupEvidence'
       group_json[:name] = kvgo.name
